@@ -20,6 +20,10 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd /home/ubuntu/CI-CD-with-docker-nodejs
-            git pull
+            cd /home/ubuntu/nodejs-applicaton-deploy-github-actions
+
+            git pull origin main
+
+            sudo docker compose down
+
             sudo docker compose up -d --build
